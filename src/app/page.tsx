@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext } from "react";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 import NavbarLayoutFloatingInline from '@/components/navbar/NavbarLayoutFloatingInline';
 import HeroBillboardCarousel from '@/components/sections/hero/HeroBillboardCarousel';
 import TextSplitAbout from '@/components/sections/about/TextSplitAbout';
@@ -12,16 +12,12 @@ import ContactSplit from '@/components/sections/contact/ContactSplit';
 import FooterSocial from '@/components/sections/footer/FooterSocial';
 import { Award, Crown, Globe, Heart, Instagram, Facebook, Twitter, Mail, Package, Sparkles, Star, Users } from 'lucide-react';
 
-const ThemeProvider = createContext(null);
-
 export default function Home() {
   return (
-    <ThemeProvider.Provider
-      value={{
-        defaultButtonVariant: "hover-magnetic",
-        defaultTextAnimation: "background-highlight",
-        borderRadius: "pill"
-      }}
+    <ThemeProvider
+      defaultButtonVariant="hover-magnetic"
+      defaultTextAnimation="background-highlight"
+      borderRadius="pill"
     >
       <div id="nav" data-section="nav">
         <NavbarLayoutFloatingInline
@@ -320,6 +316,6 @@ export default function Home() {
           ]}
         />
       </div>
-    </ThemeProvider.Provider>
+    </ThemeProvider>
   );
 }
