@@ -1,6 +1,34 @@
 "use client";
 
-import { ThemeProvider } from "@/providers/ThemeProvider";
+import { createContext, useContext, ReactNode } from 'react';
+
+type ThemeContextType = {
+  defaultButtonVariant: string;
+  defaultTextAnimation: string;
+  borderRadius: string;
+};
+
+const ThemeContext = createContext<ThemeContextType>({
+  defaultButtonVariant: "text-stagger",
+  defaultTextAnimation: "entrance-slide",
+  borderRadius: "rounded"
+});
+
+type ThemeProviderProps = {
+  children: ReactNode;
+  defaultButtonVariant?: "hover-magnetic" | "icon-arrow" | "shift-hover" | "slide-background" | "text-stagger";
+  defaultTextAnimation?: "entrance-slide" | "reveal-blur" | "background-highlight";
+  borderRadius?: "sharp" | "rounded" | "soft" | "pill";
+};
+
+function ThemeProvider({ children, defaultButtonVariant = "text-stagger", defaultTextAnimation = "entrance-slide", borderRadius = "rounded" }: ThemeProviderProps) {
+  return (
+    <ThemeContext.Provider value={{ defaultButtonVariant, defaultTextAnimation, borderRadius }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+}
+
 import NavbarLayoutFloatingInline from '@/components/navbar/NavbarLayoutFloatingInline';
 import HeroBillboardCarousel from '@/components/sections/hero/HeroBillboardCarousel';
 import TextSplitAbout from '@/components/sections/about/TextSplitAbout';
