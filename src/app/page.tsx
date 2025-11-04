@@ -1,6 +1,6 @@
 "use client";
 
-import { ThemeProvider } from "@/components/shared/ThemeProvider";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 import NavbarLayoutFloatingInline from '@/components/navbar/NavbarLayoutFloatingInline';
 import HeroBillboardCarousel from '@/components/sections/hero/HeroBillboardCarousel';
 import TextSplitAbout from '@/components/sections/about/TextSplitAbout';
